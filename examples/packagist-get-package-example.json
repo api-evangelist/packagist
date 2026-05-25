@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://packagist.org/packages/monolog/monolog.json"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "package": {
+        "name": "monolog/monolog",
+        "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+        "time": "2011-04-23T08:32:31+00:00",
+        "maintainers": [
+          { "name": "Seldaek", "avatar_url": "https://www.gravatar.com/avatar/..." }
+        ],
+        "type": "library",
+        "repository": "https://github.com/Seldaek/monolog",
+        "github_stars": 21000,
+        "github_forks": 2000,
+        "language": "PHP",
+        "downloads": { "total": 1100000000, "monthly": 30000000, "daily": 1000000 },
+        "favers": 21000,
+        "dependents": 30000,
+        "suggesters": 1500,
+        "versions": {
+          "3.7.0": {
+            "name": "monolog/monolog",
+            "version": "3.7.0",
+            "version_normalized": "3.7.0.0",
+            "time": "2024-06-28T09:40:51+00:00",
+            "type": "library",
+            "license": ["MIT"],
+            "require": { "php": ">=8.1", "psr/log": "^2.0 || ^3.0" },
+            "source": { "type": "git", "url": "https://github.com/Seldaek/monolog.git", "reference": "abc123" },
+            "dist": { "type": "zip", "url": "https://api.github.com/repos/Seldaek/monolog/zipball/abc123", "reference": "abc123", "shasum": "" }
+          }
+        }
+      }
+    }
+  }
+}

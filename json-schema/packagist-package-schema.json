@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/packagist/main/json-schema/packagist-package-schema.json",
+  "title": "Packagist Package",
+  "description": "A Composer package as published on Packagist.org.",
+  "type": "object",
+  "required": ["name", "type", "repository"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Fully qualified package name in vendor/package form.",
+      "pattern": "^[a-z0-9]([_.-]?[a-z0-9]+)*/[a-z0-9](([_.]|-{1,2})?[a-z0-9]+)*$"
+    },
+    "description": { "type": "string" },
+    "type": {
+      "type": "string",
+      "description": "Composer package type.",
+      "examples": ["library", "project", "metapackage", "composer-plugin"]
+    },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "homepage": { "type": "string", "format": "uri" },
+    "license": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "array", "items": { "type": "string" } }
+      ]
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "homepage": { "type": "string", "format": "uri" },
+          "role": { "type": "string" }
+        }
+      }
+    },
+    "repository": { "type": "string", "format": "uri" },
+    "time": { "type": "string", "format": "date-time" },
+    "maintainers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "avatar_url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "versions": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/PackageVersion" }
+    },
+    "downloads": { "$ref": "#/$defs/DownloadStats" },
+    "favers": { "type": "integer" },
+    "dependents": { "type": "integer" },
+    "suggesters": { "type": "integer" },
+    "github_stars": { "type": "integer" },
+    "github_watchers": { "type": "integer" },
+    "github_forks": { "type": "integer" },
+    "github_open_issues": { "type": "integer" },
+    "language": { "type": "string" }
+  },
+  "$defs": {
+    "PackageVersion": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "version_normalized": { "type": "string" },
+        "time": { "type": "string", "format": "date-time" },
+        "type": { "type": "string" },
+        "source": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string" },
+            "url": { "type": "string" },
+            "reference": { "type": "string" }
+          }
+        },
+        "dist": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string" },
+            "url": { "type": "string" },
+            "reference": { "type": "string" },
+            "shasum": { "type": "string" }
+          }
+        },
+        "require": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "require-dev": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "autoload": { "type": "object" },
+        "license": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "DownloadStats": {
+      "type": "object",
+      "properties": {
+        "total": { "type": "integer" },
+        "monthly": { "type": "integer" },
+        "daily": { "type": "integer" }
+      }
+    }
+  }
+}

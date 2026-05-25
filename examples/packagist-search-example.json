@@ -1,0 +1,31 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://packagist.org/search.json?q=monolog&per_page=2"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "results": [
+        {
+          "name": "monolog/monolog",
+          "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+          "url": "https://packagist.org/packages/monolog/monolog",
+          "repository": "https://github.com/Seldaek/monolog",
+          "downloads": 1100000000,
+          "favers": 21000
+        },
+        {
+          "name": "symfony/monolog-bridge",
+          "description": "Provides integration for Monolog with various Symfony components",
+          "url": "https://packagist.org/packages/symfony/monolog-bridge",
+          "repository": "https://github.com/symfony/monolog-bridge",
+          "downloads": 400000000,
+          "favers": 1700
+        }
+      ],
+      "total": 42,
+      "next": "https://packagist.org/search.json?q=monolog&per_page=2&page=2"
+    }
+  }
+}

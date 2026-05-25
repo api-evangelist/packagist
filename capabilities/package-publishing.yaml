@@ -1,0 +1,33 @@
+name: Package Publishing
+description: |
+  Authenticated workflow for submitting and maintaining packages on Packagist.org.
+  Includes creating a package from a VCS URL, editing a package's repository URL,
+  and triggering a manual re-crawl to refresh metadata.
+api: packagist-api
+governance:
+  classification: write
+  authentication:
+    type: bearer
+    format: "username:apiToken"
+    tokenTypes:
+    - SAFE  # readonly token; sufficient for update-package
+    - MAIN  # unsafe token; required for create-package and edit-package
+  rateLimits:
+    note: Use HTTP/2 and keep concurrent requests below 10.
+operations:
+- operationId: createPackage
+  intent: Submit a new package by its VCS URL.
+  requires: MAIN
+- operationId: editPackage
+  intent: Change the canonical repository URL for an existing package.
+  requires: MAIN
+- operationId: updatePackage
+  intent: Trigger an out-of-band re-crawl of a package repository.
+  requires: SAFE
+inputs:
+- name: repository.url
+  required: true
+  description: Git, Mercurial, or Subversion source URL for the package.
+outputs:
+- name: status
+  description: Acceptance/queued indicator from the Packagist application.

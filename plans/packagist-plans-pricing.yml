@@ -1,0 +1,86 @@
+name: Packagist Plans
+description: |
+  Pricing for Private Packagist, the commercial hosted/self-hosted product from the
+  Packagist team. Packagist.org itself (the public Composer registry) is free to use
+  for both publishing and consuming open-source packages.
+specification: API Commons Plans 0.1
+source: https://packagist.com/pricing
+plans:
+- id: public-packagist
+  name: Packagist.org (Public)
+  description: Free public Composer registry for open-source PHP packages.
+  entries:
+  - geo: Global
+    unit: 1
+    label: Account
+    limit: unlimited
+    price: 0
+    metric: account
+    timeFrame: month
+    description: Free for open-source publishers and consumers.
+  elements:
+  - name: Unlimited public packages
+  - name: Free anonymous read access to all metadata
+  - name: API tokens for write operations
+  - name: Webhook-driven auto-updates from GitHub, Bitbucket, GitLab, Gitea
+- id: private-packagist-cloud
+  name: Private Packagist Cloud
+  description: Hosted private Composer repository with 3 users and 3 suborganizations included.
+  entries:
+  - geo: Global
+    unit: 1
+    label: Organization (yearly)
+    limit: 3 users, 3 suborganizations
+    price: 649
+    currency: EUR
+    metric: organization
+    timeFrame: year
+    description: Annual billing; one month free vs monthly.
+  - geo: Global
+    unit: 1
+    label: Organization (monthly)
+    limit: 3 users, 3 suborganizations
+    price: 54.08
+    currency: EUR
+    metric: organization
+    timeFrame: month
+    description: Monthly billing.
+  - geo: Global
+    unit: 1
+    label: Extra User
+    price: 15.58
+    currency: EUR
+    metric: user
+    timeFrame: month
+    description: Per additional user beyond first 3.
+  - geo: Global
+    unit: 1
+    label: Extra Suborganization
+    price: 15.58
+    currency: EUR
+    metric: suborganization
+    timeFrame: month
+    description: Per additional suborganization beyond first 3.
+  elements:
+  - name: Unlimited private and open-source packages
+  - name: Git, Mercurial, Subversion support
+  - name: Security monitoring and license review
+  - name: Unlimited teams with granular permissions
+  - name: Unlimited mirroring of packagist.org packages
+  - name: Free authentication tokens for CI and deploys
+  - name: 14-day free trial
+  - name: 25% discount for solo users and non-profits
+- id: private-packagist-self-hosted
+  name: Private Packagist Self-Hosted
+  description: On-premises Private Packagist for air-gapped or compliance-sensitive deployments. Custom pricing.
+  entries:
+  - geo: Global
+    unit: 1
+    label: License
+    price: Call
+    metric: deployment
+    timeFrame: year
+  elements:
+  - name: Same feature surface as Cloud
+  - name: Run inside your own infrastructure
+  - name: License-key based activation

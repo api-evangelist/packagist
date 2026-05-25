@@ -1,0 +1,38 @@
+extends:
+- [spectral:oas, all]
+rules:
+  packagist-operation-summary-title-case:
+    description: Operation summaries must be in Title Case.
+    given: $.paths..*.summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z0-9][A-Za-z0-9]*(\s+[A-Z0-9(][A-Za-z0-9)]*)*$'
+  packagist-operation-has-tag:
+    description: Every operation must be tagged.
+    given: $.paths..*[?(@.operationId)]
+    severity: error
+    then:
+      field: tags
+      function: truthy
+  packagist-operation-has-description:
+    description: Every operation must have a description.
+    given: $.paths..*[?(@.operationId)]
+    severity: warn
+    then:
+      field: description
+      function: truthy
+  packagist-static-metadata-paths-snake-friendly:
+    description: Composer v2 metadata paths use the canonical /p2/{vendor}/{package}.json shape.
+    given: $.paths
+    severity: info
+    then:
+      function: truthy
+  packagist-json-media-type:
+    description: Responses should serve application/json (matching .json suffix endpoints).
+    given: $.paths..responses[?(@property === '200')].content
+    severity: warn
+    then:
+      field: application/json
+      function: truthy

@@ -1,0 +1,43 @@
+name: Packagist Vocabulary
+description: |
+  Normative vocabulary used by the Packagist PHP Composer package registry and the
+  Composer dependency manager.
+terms:
+- term: Package
+  definition: A unit of distributable PHP code, named vendor/package, with one or more versions.
+- term: Vendor
+  definition: The owner namespace portion of a package name (e.g., `symfony` in `symfony/console`).
+- term: Composer
+  definition: The PHP dependency manager that consumes Packagist metadata.
+- term: composer.json
+  definition: Manifest file at the root of a package describing name, type, requirements, autoloading, and metadata.
+- term: composer.lock
+  definition: Lockfile pinning resolved package versions for reproducible installs.
+- term: Package Type
+  definition: Composer type classification; common values are library, project, metapackage, and composer-plugin.
+- term: Version Constraint
+  definition: Composer-style expression matching a range of acceptable versions (e.g., `^7.4`, `>=2.0,<3.0`, `~1.2.0`).
+- term: Stability Flag
+  definition: Suffix or flag describing release stability (dev, alpha, beta, RC, stable).
+- term: Dist
+  definition: Distribution archive (zip/tar) of a specific version, typically hosted by the source forge or a CDN.
+- term: Source
+  definition: VCS reference (git/svn/hg) for a specific version of a package.
+- term: Composer v2 Metadata
+  definition: Static per-package JSON metadata served from repo.packagist.org optimized for the Composer 2.x resolver.
+- term: Metadata Changes Feed
+  definition: 24-hour rolling log of package update/delete events used by mirrors.
+- term: Security Advisory
+  definition: A published vulnerability record describing affected version ranges for a package.
+- term: PSA
+  definition: Packagist Security Advisory — Packagist's own advisory channel feeding the security database.
+- term: SAFE Token
+  definition: A Packagist API token authorized for read and metadata-refresh operations only.
+- term: MAIN Token
+  definition: A Packagist API token authorized for full write operations including package creation and editing.
+- term: Private Packagist
+  definition: Commercial hosted and self-hosted private Composer repository product run by the same team.
+- term: Satis
+  definition: Open-source static Composer repository generator, sister project to Packagist.
+- term: Mirror
+  definition: A downstream copy of Packagist metadata kept in sync via the changes feed and v2 metadata endpoints.

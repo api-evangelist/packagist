@@ -1,0 +1,48 @@
+name: Packagist Rate Limits
+description: |
+  Packagist does not publish a strict per-key request-per-second rate limit; the
+  project publishes operational guidance for high-volume clients instead. These
+  values are derived from the official API documentation at packagist.org/apidoc.
+specification: API Commons Rate Limits 0.1
+source: https://packagist.org/apidoc
+policies:
+- id: concurrent-requests-application
+  scope: per-client
+  type: concurrency
+  limit: 10
+  resource: packagist.org
+  description: Maximum 10 concurrent HTTP requests against the Packagist application API.
+- id: concurrent-requests-static
+  scope: per-client
+  type: concurrency
+  limit: 20
+  resource: repo.packagist.org
+  description: Maximum 20 concurrent HTTP requests against the static Composer v2 metadata mirror.
+- id: scheduling-guidance
+  scope: per-client
+  type: best-practice
+  description: |
+    Avoid scheduling jobs at the top of the hour (XX:00) or at midnight UTC; these
+    are observed traffic peaks. Spread workloads randomly across the hour.
+- id: user-agent-required
+  scope: per-client
+  type: best-practice
+  description: |
+    Send a descriptive User-Agent header including a `mailto=` contact so the
+    Packagist team can reach you about misbehaving clients.
+- id: http2-recommended
+  scope: per-client
+  type: best-practice
+  description: Use HTTP/2-capable clients to take advantage of multiplexing.
+- id: changes-feed-retention
+  scope: data
+  type: retention
+  limit: 24h
+  resource: /metadata/changes.json
+  description: Metadata change-log entries are retained for 24 hours. Mirror operators must poll within this window.
+- id: package-payload-cache
+  scope: data
+  type: cache
+  limit: 12h
+  resource: /packages/{vendor}/{package}.json
+  description: Application-level package payloads are cached for 12 hours; prefer /p2/ endpoints for fresher data.

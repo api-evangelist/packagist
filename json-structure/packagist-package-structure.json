@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-structure.org/schema/v1",
+  "name": "PackagistPackage",
+  "description": "Operational structure of a Packagist package as returned by /packages/{vendor}/{package}.json.",
+  "structure": {
+    "package": {
+      "identity": {
+        "name": "string (vendor/package)",
+        "type": "string (library | project | metapackage | composer-plugin)",
+        "language": "string"
+      },
+      "presentation": {
+        "description": "string",
+        "repository": "uri",
+        "time": "datetime (first registered)"
+      },
+      "people": {
+        "maintainers": "array<Maintainer>",
+        "authors": "array<Author> (per-version)"
+      },
+      "metrics": {
+        "downloads": {
+          "total": "integer",
+          "monthly": "integer",
+          "daily": "integer"
+        },
+        "favers": "integer",
+        "dependents": "integer",
+        "suggesters": "integer",
+        "github_stars": "integer",
+        "github_forks": "integer",
+        "github_watchers": "integer",
+        "github_open_issues": "integer"
+      },
+      "versions": {
+        "key": "version string (e.g., 3.7.0 or dev-main)",
+        "value": {
+          "identity": {
+            "version": "string",
+            "version_normalized": "string",
+            "type": "string"
+          },
+          "release": {
+            "time": "datetime",
+            "license": "array<string>",
+            "source": "VcsReference",
+            "dist": "DistArchive"
+          },
+          "dependencies": {
+            "require": "map<package, constraint>",
+            "require-dev": "map<package, constraint>",
+            "suggest": "map<package, string>"
+          },
+          "loading": {
+            "autoload": "object",
+            "bin": "array<string>"
+          }
+        }
+      }
+    }
+  }
+}

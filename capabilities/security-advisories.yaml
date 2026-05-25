@@ -1,0 +1,23 @@
+name: Security Advisories
+description: |
+  Look up known PHP security advisories affecting one or more Composer packages.
+  The Packagist advisory database aggregates entries from FriendsOfPHP, the GitHub
+  Advisory Database, and Packagist's own PSA channel. Used by `composer audit` and
+  by upstream security tooling.
+api: packagist-api
+governance:
+  classification: read-only
+  authentication: none
+operations:
+- operationId: getSecurityAdvisories
+  intent: Return advisories for a list of packages, optionally filtered by updated date.
+inputs:
+- name: packages
+  required: true
+  description: Composer package names (vendor/package) to look up.
+- name: updatedSince
+  required: false
+  description: Unix timestamp; only return advisories updated since this time.
+outputs:
+- name: advisories
+  description: Map of package name to a list of advisories with CVE id, severity, affected version range, and link.

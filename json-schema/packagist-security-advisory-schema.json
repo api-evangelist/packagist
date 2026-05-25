@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/packagist/main/json-schema/packagist-security-advisory-schema.json",
+  "title": "Packagist Security Advisory",
+  "description": "A security advisory for a Composer package as published by the Packagist security advisory database (FriendsOfPHP / GitHub Advisory Database sources).",
+  "type": "object",
+  "required": ["advisoryId", "packageName", "title", "affectedVersions"],
+  "properties": {
+    "advisoryId": {
+      "type": "string",
+      "description": "Stable Packagist advisory identifier."
+    },
+    "packageName": {
+      "type": "string",
+      "description": "Affected package in vendor/package form."
+    },
+    "remoteId": {
+      "type": "string",
+      "description": "Upstream advisory identifier (e.g., GHSA id)."
+    },
+    "title": { "type": "string" },
+    "link": { "type": "string", "format": "uri" },
+    "cve": {
+      "type": "string",
+      "description": "CVE identifier, if assigned.",
+      "pattern": "^CVE-\\d{4}-\\d{4,}$"
+    },
+    "affectedVersions": {
+      "type": "string",
+      "description": "Composer-style version constraint describing the affected range."
+    },
+    "source": {
+      "type": "string",
+      "description": "Upstream source feed (e.g., FriendsOfPHP, GitHub).",
+      "enum": ["FriendsOfPHP/security-advisories", "GitHub", "PSA", "Packagist"]
+    },
+    "reportedAt": { "type": "string", "format": "date-time" },
+    "composerRepository": {
+      "type": "string",
+      "description": "Composer repository the advisory applies to."
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical", "unknown"]
+    }
+  }
+}

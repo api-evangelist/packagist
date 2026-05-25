@@ -1,0 +1,24 @@
+name: Registry Change Feed
+description: |
+  Track package metadata changes across Packagist.org. Designed for mirror operators
+  and dependency-analysis tools that need to keep a local cache in sync. The change
+  log is retained for 24 hours only, so consumers must poll within that window.
+api: packagist-api
+governance:
+  classification: read-only
+  authentication: none
+  retention: 24 hours
+operations:
+- operationId: getMetadataChanges
+  intent: Pull updates and deletions since a given Unix-ms timestamp.
+- operationId: getStatistics
+  intent: Inspect aggregate registry totals (packages, versions, installs).
+inputs:
+- name: since
+  required: false
+  description: Unix timestamp (milliseconds) of the last successful poll.
+outputs:
+- name: actions
+  description: Ordered list of update/delete actions for affected packages.
+- name: timestamp
+  description: Server timestamp to use as the next `since` value.

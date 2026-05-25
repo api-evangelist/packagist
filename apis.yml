@@ -1,0 +1,206 @@
+aid: packagist
+url: https://raw.githubusercontent.com/api-evangelist/packagist/refs/heads/main/apis.yml
+apis:
+- aid: packagist:packagist-api
+  name: Packagist API
+  tags:
+  - Composer
+  - PHP
+  - Packages
+  - Package Registry
+  - Dependencies
+  - Open Source
+  humanURL: https://packagist.org/apidoc
+  baseURL: https://packagist.org
+  properties:
+  - url: https://packagist.org/apidoc
+    type: Documentation
+  - url: https://repo.packagist.org/
+    type: BaseURL
+    name: Composer v2 Static Metadata Mirror
+  - url: openapi/packagist-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/packagist-package-schema.json
+    type: JSONSchema
+  - url: json-schema/packagist-security-advisory-schema.json
+    type: JSONSchema
+  - url: json-structure/packagist-package-structure.json
+    type: JSONStructure
+  - url: json-ld/packagist-context.jsonld
+    type: JSONLD
+  - url: rules/packagist-rules.yml
+    type: SpectralRules
+  - url: vocabulary/packagist-vocabulary.yml
+    type: Vocabulary
+  - url: examples/packagist-search-example.json
+    type: Examples
+  - url: examples/packagist-get-package-example.json
+    type: Examples
+  - url: examples/packagist-security-advisories-example.json
+    type: Examples
+  - type: NaftikoCapability
+    url: capabilities/package-discovery.yaml
+  - type: NaftikoCapability
+    url: capabilities/package-publishing.yaml
+  - type: NaftikoCapability
+    url: capabilities/registry-change-feed.yaml
+  - type: NaftikoCapability
+    url: capabilities/security-advisories.yaml
+  - type: NaftikoCapability
+    url: capabilities/download-statistics.yaml
+  description: |
+    The Packagist API exposes the public PHP Composer package registry — over 454,000 packages and
+    5.58 million versions backing more than 181 billion installs since 2012. Read endpoints (list,
+    search, popular, package detail, Composer v2 metadata, change feed, statistics, security advisories)
+    are anonymous; write endpoints (create-package, edit-package, update-package) authenticate with
+    SAFE or MAIN API tokens via Bearer `username:apiToken`. Static Composer v2 metadata is served from
+    a separate high-throughput mirror at repo.packagist.org.
+name: Packagist
+tags:
+- Composer
+- PHP
+- Package Registry
+- Dependency Management
+- Open Source
+- Developer Tools
+- Software Supply Chain
+- Security Advisories
+kind: registry
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+common:
+- type: Portal
+  url: https://packagist.org
+- type: Documentation
+  url: https://packagist.org/apidoc
+- type: Documentation
+  url: https://getcomposer.org/doc/
+  name: Composer Documentation
+- type: About
+  url: https://packagist.org/about
+- type: Statistics
+  url: https://packagist.org/statistics
+- type: GitHubOrganization
+  url: https://github.com/composer
+- type: GitHubRepository
+  url: https://github.com/composer/packagist
+  name: composer/packagist (source)
+- type: GitHubRepository
+  url: https://github.com/composer/composer
+  name: composer/composer (CLI / resolver)
+- type: GitHubRepository
+  url: https://github.com/composer/satis
+  name: composer/satis (static repo generator)
+- type: GitHubRepository
+  url: https://github.com/composer/semver
+  name: composer/semver
+- type: GitHubRepository
+  url: https://github.com/composer/spdx-licenses
+  name: composer/spdx-licenses
+- type: GitHubRepository
+  url: https://github.com/composer/class-map-generator
+  name: composer/class-map-generator
+- type: GitHubRepository
+  url: https://github.com/composer/ca-bundle
+  name: composer/ca-bundle
+- type: GitHubRepository
+  url: https://github.com/composer/api-surface-check
+  name: composer/api-surface-check
+- type: GitHubRepository
+  url: https://github.com/composer/docker
+  name: composer/docker
+- type: Tool
+  url: https://getcomposer.org/
+  name: Composer (PHP Dependency Manager)
+- type: Tool
+  url: https://github.com/composer/satis
+  name: Satis (static Composer repo generator)
+- type: Documentation
+  url: https://getcomposer.org/doc/01-basic-usage.md
+  name: Composer Basic Usage
+- type: Documentation
+  url: https://getcomposer.org/doc/04-schema.md
+  name: composer.json Schema
+- type: Documentation
+  url: https://getcomposer.org/doc/articles/versions.md
+  name: Composer Version Constraints
+- type: Documentation
+  url: https://packagist.org/about#how-to-update-packages
+  name: Updating Packages
+- type: Authentication
+  url: https://packagist.org/apidoc#authentication
+  name: API Authentication
+- type: SignUp
+  url: https://packagist.org/register/
+- type: Login
+  url: https://packagist.org/login/
+- type: APIKeys
+  url: https://packagist.org/profile/
+  name: User Profile (API Tokens)
+- type: SecurityAdvisories
+  url: https://packagist.org/apidoc#list-security-advisories
+- type: SecurityAdvisories
+  url: https://github.com/FriendsOfPHP/security-advisories
+  name: FriendsOfPHP/security-advisories
+- type: Mirror
+  url: https://packagist.org/mirrors
+  name: Packagist Mirrors
+- type: Sandbox
+  url: https://packagist.com
+  name: Private Packagist (commercial sibling)
+- type: PrivacyPolicy
+  url: https://packagist.com/privacy
+- type: TermsOfService
+  url: https://packagist.com/terms-of-service
+- type: License
+  url: https://github.com/composer/packagist/blob/main/LICENSE
+  name: MIT License
+- type: Blog
+  url: https://blog.packagist.com/
+- type: Forum
+  url: https://github.com/composer/packagist/discussions
+- type: Issues
+  url: https://github.com/composer/packagist/issues
+- type: Plans
+  url: plans/packagist-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/packagist-rate-limits.yml
+- type: Features
+  data:
+  - 454,128 packages, 5.58 million versions, 181 billion+ installs since April 2012
+  - Default Composer package repository for the PHP ecosystem
+  - Static Composer v2 metadata mirror at repo.packagist.org with long-lived caching
+  - Bearer token auth with SAFE (read/update) and MAIN (create/edit) token classes
+  - 24-hour rolling change feed for mirror operators and dependency scanners
+  - Security advisories API aggregating FriendsOfPHP, GitHub Advisory Database, and PSA sources
+  - Webhook-driven auto-updates from GitHub, Bitbucket, GitLab, and Gitea
+  - Algolia-powered package search across name, tags, and type
+  - Per-package and per-version download statistics
+  - Commercial sibling Private Packagist for private/hosted/self-hosted Composer repositories
+  - MIT-licensed open source codebase (composer/packagist) — operated, not designed for reuse
+  - Funded by Private Packagist subscriptions plus Bunny.net (CDN) and Aikido (security) sponsorships
+  sources:
+  - https://packagist.org/apidoc
+  - https://packagist.org/about
+  - https://packagist.org/statistics
+  - https://github.com/composer/packagist
+  - https://packagist.com/pricing
+  updated: '2026-05-25'
+created: '2026-05-25T00:00:00.000Z'
+modified: '2026-05-25'
+position: Providing
+description: |
+  Packagist is the default package repository for Composer, the PHP dependency manager. It indexes
+  over 454,000 open-source PHP packages — versions, dependencies, maintainers, download statistics,
+  security advisories — and exposes them through a free public HTTP API plus a high-throughput static
+  Composer v2 metadata mirror at repo.packagist.org. Packagist is MIT-licensed open source (composer/packagist
+  on GitHub) and is operated by the Composer team, with funding from Private Packagist (the commercial
+  hosted/self-hosted sibling product at packagist.com) and infrastructure sponsorships from Bunny.net
+  and Aikido. Together with the Composer CLI, the SemVer library, the SPDX licenses helper, and the
+  Satis static repository generator, Packagist anchors PHP's modern software supply chain.
+maintainers:
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
+specificationVersion: '0.16'

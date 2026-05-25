@@ -1,0 +1,54 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "packagist": "https://packagist.org/ns#",
+
+    "Package": "schema:SoftwareSourceCode",
+    "name": "schema:identifier",
+    "description": "schema:description",
+    "type": "packagist:packageType",
+    "keywords": "schema:keywords",
+    "homepage": { "@id": "schema:url", "@type": "@id" },
+    "repository": { "@id": "schema:codeRepository", "@type": "@id" },
+    "license": "spdx:licenseId",
+
+    "authors": "schema:author",
+    "maintainers": "packagist:maintainer",
+    "Person": "schema:Person",
+    "email": "schema:email",
+    "role": "schema:roleName",
+
+    "versions": "packagist:version",
+    "version": "schema:softwareVersion",
+    "version_normalized": "packagist:normalizedVersion",
+    "time": { "@id": "schema:dateCreated", "@type": "schema:DateTime" },
+
+    "source": "packagist:source",
+    "dist": "packagist:distribution",
+    "reference": "packagist:reference",
+    "shasum": "packagist:shasum",
+
+    "require": "packagist:requires",
+    "require-dev": "packagist:requiresDev",
+    "suggest": "packagist:suggests",
+    "autoload": "packagist:autoload",
+
+    "downloads": "packagist:downloadStats",
+    "total": "packagist:totalDownloads",
+    "monthly": "packagist:monthlyDownloads",
+    "daily": "packagist:dailyDownloads",
+    "favers": "packagist:favorites",
+    "dependents": "packagist:dependentCount",
+    "suggesters": "packagist:suggesterCount",
+
+    "SecurityAdvisory": "packagist:SecurityAdvisory",
+    "advisoryId": "packagist:advisoryId",
+    "remoteId": "packagist:remoteId",
+    "cve": "packagist:cve",
+    "affectedVersions": "packagist:affectedVersions",
+    "severity": "packagist:severity",
+    "reportedAt": { "@id": "schema:datePublished", "@type": "schema:DateTime" }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://packagist.org/api/security-advisories/?packages%5B%5D=symfony%2Fsymfony&packages%5B%5D=laravel%2Fframework"
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "advisories": {
+        "symfony/symfony": [
+          {
+            "advisoryId": "PKSA-xxxx-xxxx-xxxx",
+            "packageName": "symfony/symfony",
+            "remoteId": "GHSA-xxxx-xxxx-xxxx",
+            "title": "Cross-site scripting via HTML escaping",
+            "link": "https://symfony.com/blog/cve-2024-xxxxx",
+            "cve": "CVE-2024-12345",
+            "affectedVersions": ">=4.4.0,<4.4.50|>=5.4.0,<5.4.20|>=6.0.0,<6.0.20",
+            "source": "FriendsOfPHP/security-advisories",
+            "reportedAt": "2024-02-15T10:00:00+00:00",
+            "composerRepository": "https://packagist.org",
+            "severity": "high"
+          }
+        ],
+        "laravel/framework": []
+      }
+    }
+  }
+}
