@@ -1,0 +1,359 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packagist API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Packages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/packages/list.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "query",
+                "description": "Filter by vendor name."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Composer package type (library, project, metapackage, composer-plugin)."
+              },
+              {
+                "name": "fields[]",
+                "value": "",
+                "type": "query",
+                "description": "Extra fields to include for each package."
+              }
+            ]
+          },
+          "docs": "List all packages, optionally filtered by vendor or type."
+        },
+        {
+          "info": {
+            "name": "Get Popular Packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/explore/popular.json",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the most popular packages ranked by recent weekly downloads."
+        },
+        {
+          "info": {
+            "name": "Get Package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/packages/:vendor/:package.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve full package data including all versions, maintainers, downloads, and dependents. Cached for 12 hours."
+        },
+        {
+          "info": {
+            "name": "Create Package",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://packagist.org/api/create-package",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Submit a new package by its source repository URL."
+        },
+        {
+          "info": {
+            "name": "Edit Package URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://packagist.org/api/packages/:package",
+            "params": [
+              {
+                "name": "package",
+                "value": "",
+                "type": "path",
+                "description": "Full package name (vendor/package)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the source repository URL of an existing package."
+        },
+        {
+          "info": {
+            "name": "Update Package Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://packagist.org/api/update-package",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Trigger a re-crawl of a package's repository to refresh its metadata. SAFE token sufficient."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/search.json",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Free-text search query."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by tag."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by Composer package type."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page (default 15, max 100)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              }
+            ]
+          },
+          "docs": "Search Packagist by name, tag, or type. Results are paginated."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Package Metadata (Composer v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/p2/:vendor/:package.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Static Composer v2 metadata. Preferred endpoint for dependency resolvers — served\nfrom repo.packagist.org with long-lived caching.\n"
+        },
+        {
+          "info": {
+            "name": "Get Package Dev Metadata (Composer v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/p2/:vendor/:package~dev.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Composer v2 metadata for dev branches (development releases)."
+        },
+        {
+          "info": {
+            "name": "Get Metadata Changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/metadata/changes.json",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp (milliseconds) to fetch changes since."
+              }
+            ]
+          },
+          "docs": "Stream package metadata changes since a given timestamp. Retained for 24 hours only."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Package Download Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/packages/:vendor/:package/stats.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get per-version and aggregate download statistics for a package."
+        },
+        {
+          "info": {
+            "name": "Get Global Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/statistics.json"
+          },
+          "docs": "Aggregate Packagist statistics — total packages, total versions, total installs."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Security",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Security Advisories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/api/security-advisories/",
+            "params": [
+              {
+                "name": "packages[]",
+                "value": "",
+                "type": "query",
+                "description": "One or more package names to check."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Only return advisories updated since this Unix timestamp."
+              }
+            ]
+          },
+          "docs": "Look up security advisories that apply to one or more packages."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
