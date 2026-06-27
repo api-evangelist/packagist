@@ -99,10 +99,10 @@ common:
   - type: GitHubRepository
     url: https://github.com/composer/docker
     name: composer/docker
-  - type: Tool
+  - type: Tools
     url: https://getcomposer.org/
     name: Composer (PHP Dependency Manager)
-  - type: Tool
+  - type: Tools
     url: https://github.com/composer/satis
     name: Satis (static Composer repo generator)
   - type: Documentation
@@ -120,7 +120,7 @@ common:
   - type: Authentication
     url: https://packagist.org/apidoc#authentication
     name: API Authentication
-  - type: SignUp
+  - type: Signup
     url: https://packagist.org/register/
   - type: Login
     url: https://packagist.org/login/
@@ -147,7 +147,7 @@ common:
     name: MIT License
   - type: Blog
     url: https://blog.packagist.com/
-  - type: Forum
+  - type: Forums
     url: https://github.com/composer/packagist/discussions
   - type: Issues
     url: https://github.com/composer/packagist/issues
