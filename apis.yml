@@ -59,6 +59,10 @@ kind: registry
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+  - type: DomainSecurity
+    url: security/packagist-domain-security.yml
+  - type: Authentication
+    url: authentication/packagist-authentication.yml
   - type: Portal
     url: https://packagist.org
   - type: Documentation
