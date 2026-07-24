@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: Packagist Metadata API
+  description: 'The Packagist API exposes the PHP Composer package registry. Use it to list, search,
+
+    and inspect packages; retrieve Composer v2 metadata for resolvers; track changes;
+
+    fetch download statistics; query the security advisory database; and create or
+
+    update package entries (authenticated).
+
+    '
+  version: '1.0'
+  contact:
+    name: Packagist
+    url: https://packagist.org
+  license:
+    name: MIT
+    url: https://github.com/composer/packagist/blob/main/LICENSE
+servers:
+- url: https://packagist.org
+  description: Packagist Application API
+- url: https://repo.packagist.org
+  description: Composer v2 Static Metadata Mirror
+tags:
+- name: Metadata
+  description: Composer v2 static metadata and change tracking.
+paths:
+  /p2/{vendor}/{package}.json:
+    get:
+      operationId: getPackageMetadataV2
+      summary: Get Package Metadata (Composer v2)
+      description: 'Static Composer v2 metadata. Preferred endpoint for dependency resolvers — served
+
+        from repo.packagist.org with long-lived caching.
+
+        '
+      tags:
+      - Metadata
+      parameters:
+      - name: vendor
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: package
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Composer v2 package metadata.
+  /p2/{vendor}/{package}~dev.json:
+    get:
+      operationId: getPackageMetadataV2Dev
+      summary: Get Package Dev Metadata (Composer v2)
+      description: Composer v2 metadata for dev branches (development releases).
+      tags:
+      - Metadata
+      parameters:
+      - name: vendor
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: package
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Composer v2 dev metadata.
+  /metadata/changes.json:
+    get:
+      operationId: getMetadataChanges
+      summary: Get Metadata Changes
+      description: Stream package metadata changes since a given timestamp. Retained for 24 hours only.
+      tags:
+      - Metadata
+      parameters:
+      - name: since
+        in: query
+        description: Unix timestamp (milliseconds) to fetch changes since.
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: List of metadata changes.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  actions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          enum:
+                          - update
+                          - delete
+                        package:
+                          type: string
+                        time:
+                          type: integer
+                          format: int64
+                  timestamp:
+                    type: integer
+                    format: int64
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: username:apiToken

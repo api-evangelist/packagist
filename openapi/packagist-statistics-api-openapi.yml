@@ -1,0 +1,101 @@
+openapi: 3.0.3
+info:
+  title: Packagist Metadata Statistics API
+  description: 'The Packagist API exposes the PHP Composer package registry. Use it to list, search,
+
+    and inspect packages; retrieve Composer v2 metadata for resolvers; track changes;
+
+    fetch download statistics; query the security advisory database; and create or
+
+    update package entries (authenticated).
+
+    '
+  version: '1.0'
+  contact:
+    name: Packagist
+    url: https://packagist.org
+  license:
+    name: MIT
+    url: https://github.com/composer/packagist/blob/main/LICENSE
+servers:
+- url: https://packagist.org
+  description: Packagist Application API
+- url: https://repo.packagist.org
+  description: Composer v2 Static Metadata Mirror
+tags:
+- name: Statistics
+  description: Download and registry statistics.
+paths:
+  /packages/{vendor}/{package}/stats.json:
+    get:
+      operationId: getPackageStats
+      summary: Get Package Download Statistics
+      description: Get per-version and aggregate download statistics for a package.
+      tags:
+      - Statistics
+      parameters:
+      - name: vendor
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: package
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Download statistics.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  downloads:
+                    $ref: '#/components/schemas/DownloadStats'
+                  versions:
+                    type: object
+                    additionalProperties:
+                      type: integer
+  /statistics.json:
+    get:
+      operationId: getStatistics
+      summary: Get Global Statistics
+      description: Aggregate Packagist statistics — total packages, total versions, total installs.
+      tags:
+      - Statistics
+      responses:
+        '200':
+          description: Global statistics.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totals:
+                    type: object
+                    properties:
+                      packages:
+                        type: integer
+                      versions:
+                        type: integer
+                      installs:
+                        type: integer
+                        format: int64
+components:
+  schemas:
+    DownloadStats:
+      type: object
+      properties:
+        total:
+          type: integer
+        monthly:
+          type: integer
+        daily:
+          type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: username:apiToken

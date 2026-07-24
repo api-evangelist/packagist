@@ -1,0 +1,97 @@
+openapi: 3.0.3
+info:
+  title: Packagist Metadata Security API
+  description: 'The Packagist API exposes the PHP Composer package registry. Use it to list, search,
+
+    and inspect packages; retrieve Composer v2 metadata for resolvers; track changes;
+
+    fetch download statistics; query the security advisory database; and create or
+
+    update package entries (authenticated).
+
+    '
+  version: '1.0'
+  contact:
+    name: Packagist
+    url: https://packagist.org
+  license:
+    name: MIT
+    url: https://github.com/composer/packagist/blob/main/LICENSE
+servers:
+- url: https://packagist.org
+  description: Packagist Application API
+- url: https://repo.packagist.org
+  description: Composer v2 Static Metadata Mirror
+tags:
+- name: Security
+  description: PHP security advisory database.
+paths:
+  /api/security-advisories/:
+    get:
+      operationId: getSecurityAdvisories
+      summary: Get Security Advisories
+      description: Look up security advisories that apply to one or more packages.
+      tags:
+      - Security
+      parameters:
+      - name: packages[]
+        in: query
+        description: One or more package names to check.
+        schema:
+          type: array
+          items:
+            type: string
+      - name: updatedSince
+        in: query
+        description: Only return advisories updated since this Unix timestamp.
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Security advisories for the given packages.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  advisories:
+                    type: object
+                    additionalProperties:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/SecurityAdvisory'
+components:
+  schemas:
+    SecurityAdvisory:
+      type: object
+      properties:
+        advisoryId:
+          type: string
+        packageName:
+          type: string
+        remoteId:
+          type: string
+        title:
+          type: string
+        link:
+          type: string
+          format: uri
+        cve:
+          type: string
+        affectedVersions:
+          type: string
+        source:
+          type: string
+        reportedAt:
+          type: string
+          format: date-time
+        composerRepository:
+          type: string
+        severity:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: username:apiToken

@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: Packagist Metadata Search API
+  description: 'The Packagist API exposes the PHP Composer package registry. Use it to list, search,
+
+    and inspect packages; retrieve Composer v2 metadata for resolvers; track changes;
+
+    fetch download statistics; query the security advisory database; and create or
+
+    update package entries (authenticated).
+
+    '
+  version: '1.0'
+  contact:
+    name: Packagist
+    url: https://packagist.org
+  license:
+    name: MIT
+    url: https://github.com/composer/packagist/blob/main/LICENSE
+servers:
+- url: https://packagist.org
+  description: Packagist Application API
+- url: https://repo.packagist.org
+  description: Composer v2 Static Metadata Mirror
+tags:
+- name: Search
+  description: Search the Packagist registry.
+paths:
+  /search.json:
+    get:
+      operationId: searchPackages
+      summary: Search Packages
+      description: Search Packagist by name, tag, or type. Results are paginated.
+      tags:
+      - Search
+      parameters:
+      - name: q
+        in: query
+        description: Free-text search query.
+        schema:
+          type: string
+      - name: tags
+        in: query
+        description: Filter results by tag.
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: Filter results by Composer package type.
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        description: Results per page (default 15, max 100).
+        schema:
+          type: integer
+          default: 15
+          maximum: 100
+      - name: page
+        in: query
+        description: Page number.
+        schema:
+          type: integer
+          default: 1
+      responses:
+        '200':
+          description: Search results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PackageSummary'
+                  total:
+                    type: integer
+                  next:
+                    type: string
+components:
+  schemas:
+    PackageSummary:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+          format: uri
+        repository:
+          type: string
+          format: uri
+        downloads:
+          type: integer
+        favers:
+          type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: username:apiToken
