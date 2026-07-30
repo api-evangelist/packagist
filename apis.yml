@@ -1,50 +1,166 @@
 aid: packagist
 url: https://raw.githubusercontent.com/api-evangelist/packagist/refs/heads/main/apis.yml
 apis:
-  - aid: packagist:packagist-api
-    name: Packagist API
-    tags:
-      - Composer
-      - PHP
-      - Packages
-      - Package Registry
-      - Dependencies
-      - Open Source
-    humanURL: https://packagist.org/apidoc
-    baseURL: https://packagist.org
-    properties:
-      - url: https://packagist.org/apidoc
-        type: Documentation
-      - url: https://repo.packagist.org/
-        type: BaseURL
-        name: Composer v2 Static Metadata Mirror
-      - url: openapi/packagist-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/packagist-package-schema.json
-        type: JSONSchema
-      - url: json-schema/packagist-security-advisory-schema.json
-        type: JSONSchema
-      - url: json-structure/packagist-package-structure.json
-        type: JSONStructure
-      - url: json-ld/packagist-context.jsonld
-        type: JSONLD
-      - url: rules/packagist-rules.yml
-        type: SpectralRules
-      - url: vocabulary/packagist-vocabulary.yml
-        type: Vocabulary
-      - url: examples/packagist-search-example.json
-        type: Examples
-      - url: examples/packagist-get-package-example.json
-        type: Examples
-      - url: examples/packagist-security-advisories-example.json
-        type: Examples
-    description: |
-      The Packagist API exposes the public PHP Composer package registry — over 454,000 packages and
-      5.58 million versions backing more than 181 billion installs since 2012. Read endpoints (list,
-      search, popular, package detail, Composer v2 metadata, change feed, statistics, security advisories)
-      are anonymous; write endpoints (create-package, edit-package, update-package) authenticate with
-      SAFE or MAIN API tokens via Bearer `username:apiToken`. Static Composer v2 metadata is served from
-      a separate high-throughput mirror at repo.packagist.org.
+- aid: packagist:packagist-metadata-api
+  name: Packagist Metadata API
+  description: Composer v2 static metadata and change tracking.
+  humanURL: https://packagist.org/apidoc
+  baseURL: https://packagist.org
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/packagist-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://packagist.org/apidoc
+  - type: BaseURL
+    url: https://repo.packagist.org/
+  - type: JSONSchema
+    url: json-schema/packagist-package-schema.json
+  - type: JSONSchema
+    url: json-schema/packagist-security-advisory-schema.json
+  - type: JSONStructure
+    url: json-structure/packagist-package-structure.json
+  - type: JSONLD
+    url: json-ld/packagist-context.jsonld
+  - type: SpectralRules
+    url: rules/packagist-rules.yml
+  - type: Vocabulary
+    url: vocabulary/packagist-vocabulary.yml
+  - type: Examples
+    url: examples/packagist-search-example.json
+  - type: Examples
+    url: examples/packagist-get-package-example.json
+  - type: Examples
+    url: examples/packagist-security-advisories-example.json
+- aid: packagist:packagist-packages-api
+  name: Packagist Packages API
+  description: Discover and manage Composer packages.
+  humanURL: https://packagist.org/apidoc
+  baseURL: https://packagist.org
+  tags:
+  - Packages
+  properties:
+  - type: OpenAPI
+    url: openapi/packagist-packages-api-openapi.yml
+  - type: Documentation
+    url: https://packagist.org/apidoc
+  - type: BaseURL
+    url: https://repo.packagist.org/
+  - type: JSONSchema
+    url: json-schema/packagist-package-schema.json
+  - type: JSONSchema
+    url: json-schema/packagist-security-advisory-schema.json
+  - type: JSONStructure
+    url: json-structure/packagist-package-structure.json
+  - type: JSONLD
+    url: json-ld/packagist-context.jsonld
+  - type: SpectralRules
+    url: rules/packagist-rules.yml
+  - type: Vocabulary
+    url: vocabulary/packagist-vocabulary.yml
+  - type: Examples
+    url: examples/packagist-search-example.json
+  - type: Examples
+    url: examples/packagist-get-package-example.json
+  - type: Examples
+    url: examples/packagist-security-advisories-example.json
+- aid: packagist:packagist-search-api
+  name: Packagist Search API
+  description: Search the Packagist registry.
+  humanURL: https://packagist.org/apidoc
+  baseURL: https://packagist.org
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/packagist-search-api-openapi.yml
+  - type: Documentation
+    url: https://packagist.org/apidoc
+  - type: BaseURL
+    url: https://repo.packagist.org/
+  - type: JSONSchema
+    url: json-schema/packagist-package-schema.json
+  - type: JSONSchema
+    url: json-schema/packagist-security-advisory-schema.json
+  - type: JSONStructure
+    url: json-structure/packagist-package-structure.json
+  - type: JSONLD
+    url: json-ld/packagist-context.jsonld
+  - type: SpectralRules
+    url: rules/packagist-rules.yml
+  - type: Vocabulary
+    url: vocabulary/packagist-vocabulary.yml
+  - type: Examples
+    url: examples/packagist-search-example.json
+  - type: Examples
+    url: examples/packagist-get-package-example.json
+  - type: Examples
+    url: examples/packagist-security-advisories-example.json
+- aid: packagist:packagist-security-api
+  name: Packagist Security API
+  description: PHP security advisory database.
+  humanURL: https://packagist.org/apidoc
+  baseURL: https://packagist.org
+  tags:
+  - Security
+  properties:
+  - type: OpenAPI
+    url: openapi/packagist-security-api-openapi.yml
+  - type: Documentation
+    url: https://packagist.org/apidoc
+  - type: BaseURL
+    url: https://repo.packagist.org/
+  - type: JSONSchema
+    url: json-schema/packagist-package-schema.json
+  - type: JSONSchema
+    url: json-schema/packagist-security-advisory-schema.json
+  - type: JSONStructure
+    url: json-structure/packagist-package-structure.json
+  - type: JSONLD
+    url: json-ld/packagist-context.jsonld
+  - type: SpectralRules
+    url: rules/packagist-rules.yml
+  - type: Vocabulary
+    url: vocabulary/packagist-vocabulary.yml
+  - type: Examples
+    url: examples/packagist-search-example.json
+  - type: Examples
+    url: examples/packagist-get-package-example.json
+  - type: Examples
+    url: examples/packagist-security-advisories-example.json
+- aid: packagist:packagist-statistics-api
+  name: Packagist Statistics API
+  description: Download and registry statistics.
+  humanURL: https://packagist.org/apidoc
+  baseURL: https://packagist.org
+  tags:
+  - Statistics
+  properties:
+  - type: OpenAPI
+    url: openapi/packagist-statistics-api-openapi.yml
+  - type: Documentation
+    url: https://packagist.org/apidoc
+  - type: BaseURL
+    url: https://repo.packagist.org/
+  - type: JSONSchema
+    url: json-schema/packagist-package-schema.json
+  - type: JSONSchema
+    url: json-schema/packagist-security-advisory-schema.json
+  - type: JSONStructure
+    url: json-structure/packagist-package-structure.json
+  - type: JSONLD
+    url: json-ld/packagist-context.jsonld
+  - type: SpectralRules
+    url: rules/packagist-rules.yml
+  - type: Vocabulary
+    url: vocabulary/packagist-vocabulary.yml
+  - type: Examples
+    url: examples/packagist-search-example.json
+  - type: Examples
+    url: examples/packagist-get-package-example.json
+  - type: Examples
+    url: examples/packagist-security-advisories-example.json
 name: Packagist
 tags:
   - Composer
@@ -56,7 +172,20 @@ tags:
   - Software Supply Chain
   - Security Advisories
 kind: registry
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/packagist.png
 access: 3rd-Party
 common:
   - type: AgenticAccess
