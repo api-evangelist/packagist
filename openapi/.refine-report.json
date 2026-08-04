@@ -1,0 +1,22 @@
+{
+  "provider": "packagist",
+  "sources": [
+    "packagist-metadata-api-openapi.yml",
+    "packagist-packages-api-openapi.yml",
+    "packagist-search-api-openapi.yml",
+    "packagist-security-api-openapi.yml",
+    "packagist-statistics-api-openapi.yml"
+  ],
+  "outputs": [
+    "packagist-metadata-api-openapi.yml",
+    "packagist-packages-api-openapi.yml",
+    "packagist-search-api-openapi.yml",
+    "packagist-security-api-openapi.yml",
+    "packagist-statistics-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
