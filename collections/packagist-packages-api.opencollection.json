@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packagist Metadata Packages API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Packages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/packages/list.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "query",
+                "description": "Filter by vendor name."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Composer package type (library, project, metapackage, composer-plugin)."
+              },
+              {
+                "name": "fields[]",
+                "value": "",
+                "type": "query",
+                "description": "Extra fields to include for each package."
+              }
+            ]
+          },
+          "docs": "List all packages, optionally filtered by vendor or type."
+        },
+        {
+          "info": {
+            "name": "Get Popular Packages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/explore/popular.json",
+            "params": [
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the most popular packages ranked by recent weekly downloads."
+        },
+        {
+          "info": {
+            "name": "Get Package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/packages/:vendor/:package.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve full package data including all versions, maintainers, downloads, and dependents. Cached for 12 hours."
+        },
+        {
+          "info": {
+            "name": "Create Package",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://packagist.org/api/create-package",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Submit a new package by its source repository URL."
+        },
+        {
+          "info": {
+            "name": "Edit Package URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://packagist.org/api/packages/:package",
+            "params": [
+              {
+                "name": "package",
+                "value": "",
+                "type": "path",
+                "description": "Full package name (vendor/package)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update the source repository URL of an existing package."
+        },
+        {
+          "info": {
+            "name": "Update Package Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://packagist.org/api/update-package",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Trigger a re-crawl of a package's repository to refresh its metadata. SAFE token sufficient."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

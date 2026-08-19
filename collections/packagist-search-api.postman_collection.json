@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "5953d8e1-a6c9-47ae-b6ab-a6cd3b1327b7",
+      "name": "Search",
+      "description": {
+        "content": "Search the Packagist registry.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7a1b4323-093c-4af0-8b2f-646aa3a86e55",
+          "name": "Search Packages",
+          "request": {
+            "name": "Search Packages",
+            "description": {
+              "content": "Search Packagist by name, tag, or type. Results are paginated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Free-text search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Filter results by tag."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter results by Composer package type."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "15",
+                  "description": "Results per page (default 15, max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b90bcc4-bd61-477d-a5f1-cb1e6d30d7af",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "15"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://hZYmT.tzwuyYZOv\",\n      \"repository\": \"https://idOhiKQ.epcz+oApjAN,iD+OpTe4yK2IT7nOUf6WCFqrdliG3ZrJXejUbvmyHP7\",\n      \"downloads\": 8575,\n      \"favers\": 4586\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"http://NKRWhFytwszJyOeCVZcEwDvBLK.mtblTDFZcZlUgJINqYoqAXQVWWVYNZj0UE3gj.NIqF\",\n      \"repository\": \"http://tcOitgZwYzOQdGjnqAvVeYW.pknoF+5EyJsnFWajnLo4A0\",\n      \"downloads\": 7380,\n      \"favers\": 5540\n    }\n  ],\n  \"total\": 8839,\n  \"next\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://packagist.org",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d5e93a82-9720-4bfa-ad07-d2db5e4ca488",
+    "name": "Packagist Metadata Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Packagist API exposes the PHP Composer package registry. Use it to list, search,\nand inspect packages; retrieve Composer v2 metadata for resolvers; track changes;\nfetch download statistics; query the security advisory database; and create or\nupdate package entries (authenticated).\n\n\nContact Support:\n Name: Packagist",
+      "type": "text/plain"
+    }
+  }
+}

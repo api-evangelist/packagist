@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packagist Metadata Statistics API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statistics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Package Download Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/packages/:vendor/:package/stats.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get per-version and aggregate download statistics for a package."
+        },
+        {
+          "info": {
+            "name": "Get Global Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/statistics.json"
+          },
+          "docs": "Aggregate Packagist statistics — total packages, total versions, total installs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,282 @@
+{
+  "item": [
+    {
+      "id": "24c619b7-47f2-434f-8f96-7ca0357e527a",
+      "name": "Metadata",
+      "description": {
+        "content": "Composer v2 static metadata and change tracking.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "114dd553-323b-4f26-823f-acf13e1e98b2",
+          "name": "Get Package Metadata (Composer v2)",
+          "request": {
+            "name": "Get Package Metadata (Composer v2)",
+            "description": {
+              "content": "Static Composer v2 metadata. Preferred endpoint for dependency resolvers — served\nfrom repo.packagist.org with long-lived caching.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "p2",
+                ":vendor",
+                "{{package}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50abd44d-5193-40d0-ad8b-dd91fb20d729",
+              "name": "Composer v2 package metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "p2",
+                    ":vendor",
+                    "{{package}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc3f88b1-4aca-4b2a-9dd0-d354bf46f079",
+          "name": "Get Package Dev Metadata (Composer v2)",
+          "request": {
+            "name": "Get Package Dev Metadata (Composer v2)",
+            "description": {
+              "content": "Composer v2 metadata for dev branches (development releases).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "p2",
+                ":vendor",
+                "{{package}}~dev.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc24753b-076b-49f0-a188-08b57535e580",
+              "name": "Composer v2 dev metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "p2",
+                    ":vendor",
+                    "{{package}}~dev.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1f4ca07-eebf-40b3-a4fb-9cbd496c7ec8",
+          "name": "Get Metadata Changes",
+          "request": {
+            "name": "Get Metadata Changes",
+            "description": {
+              "content": "Stream package metadata changes since a given timestamp. Retained for 24 hours only.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadata",
+                "changes.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<long>",
+                  "description": "Unix timestamp (milliseconds) to fetch changes since."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f36efeeb-4668-4870-8a44-73beafce410f",
+              "name": "List of metadata changes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadata",
+                    "changes.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actions\": [\n    {\n      \"type\": \"update\",\n      \"package\": \"string\",\n      \"time\": 268\n    },\n    {\n      \"type\": \"update\",\n      \"package\": \"string\",\n      \"time\": 657\n    }\n  ],\n  \"timestamp\": 2579\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://packagist.org",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "package"
+    }
+  ],
+  "info": {
+    "_postman_id": "90f73a58-0a24-4def-98e5-d3ee6095a014",
+    "name": "Packagist Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Packagist API exposes the PHP Composer package registry. Use it to list, search,\nand inspect packages; retrieve Composer v2 metadata for resolvers; track changes;\nfetch download statistics; query the security advisory database; and create or\nupdate package entries (authenticated).\n\n\nContact Support:\n Name: Packagist",
+      "type": "text/plain"
+    }
+  }
+}

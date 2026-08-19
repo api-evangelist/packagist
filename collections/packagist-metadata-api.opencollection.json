@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packagist Metadata API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Package Metadata (Composer v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/p2/:vendor/:package.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Static Composer v2 metadata. Preferred endpoint for dependency resolvers — served\nfrom repo.packagist.org with long-lived caching.\n"
+        },
+        {
+          "info": {
+            "name": "Get Package Dev Metadata (Composer v2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/p2/:vendor/:package~dev.json",
+            "params": [
+              {
+                "name": "vendor",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "package",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Composer v2 metadata for dev branches (development releases)."
+        },
+        {
+          "info": {
+            "name": "Get Metadata Changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/metadata/changes.json",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Unix timestamp (milliseconds) to fetch changes since."
+              }
+            ]
+          },
+          "docs": "Stream package metadata changes since a given timestamp. Retained for 24 hours only."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,138 @@
+{
+  "item": [
+    {
+      "id": "b5d66f59-5322-44f8-9f80-111ff1d48598",
+      "name": "Security",
+      "description": {
+        "content": "PHP security advisory database.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9320aac8-e4b2-4a27-bcdc-eb980deb488a",
+          "name": "Get Security Advisories",
+          "request": {
+            "name": "Get Security Advisories",
+            "description": {
+              "content": "Look up security advisories that apply to one or more packages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "security-advisories",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "packages[]",
+                  "value": "<string>",
+                  "description": "One or more package names to check."
+                },
+                {
+                  "disabled": false,
+                  "key": "packages[]",
+                  "value": "<string>",
+                  "description": "One or more package names to check."
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedSince",
+                  "value": "<long>",
+                  "description": "Only return advisories updated since this Unix timestamp."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10024097-9aa1-44bb-b787-11df82d3b271",
+              "name": "Security advisories for the given packages.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "security-advisories",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "packages[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "packages[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"advisories\": {\n    \"key_0\": [\n      {\n        \"advisoryId\": \"string\",\n        \"packageName\": \"string\",\n        \"remoteId\": \"string\",\n        \"title\": \"string\",\n        \"link\": \"https://mzwEjvcCsgcEjKG.mqSnsrf1CPMhOPA0e.NPQk4l7gDeWe\",\n        \"cve\": \"string\",\n        \"affectedVersions\": \"string\",\n        \"source\": \"string\",\n        \"reportedAt\": \"1994-11-02T18:02:33.478Z\",\n        \"composerRepository\": \"string\",\n        \"severity\": \"string\"\n      },\n      {\n        \"advisoryId\": \"string\",\n        \"packageName\": \"string\",\n        \"remoteId\": \"string\",\n        \"title\": \"string\",\n        \"link\": \"http://sppVwDULAEVpQab.onqtCCrXB53,h+BLsXPBZwaYc6M9yv\",\n        \"cve\": \"string\",\n        \"affectedVersions\": \"string\",\n        \"source\": \"string\",\n        \"reportedAt\": \"1982-09-28T20:11:37.518Z\",\n        \"composerRepository\": \"string\",\n        \"severity\": \"string\"\n      }\n    ],\n    \"key_1\": [\n      {\n        \"advisoryId\": \"string\",\n        \"packageName\": \"string\",\n        \"remoteId\": \"string\",\n        \"title\": \"string\",\n        \"link\": \"http://nRCxeibYaZwRlpYzsGLYGTTupQb.egyckKdc2Vg79YKqbfblQiHhfrxcmUQf4hMJq,pCCc1dRsskJaFoYS9QGlX1RIPvK,fz\",\n        \"cve\": \"string\",\n        \"affectedVersions\": \"string\",\n        \"source\": \"string\",\n        \"reportedAt\": \"2003-10-09T02:27:39.747Z\",\n        \"composerRepository\": \"string\",\n        \"severity\": \"string\"\n      },\n      {\n        \"advisoryId\": \"string\",\n        \"packageName\": \"string\",\n        \"remoteId\": \"string\",\n        \"title\": \"string\",\n        \"link\": \"http://VqIjvnLvoLybArCcWhdrXdrxxR.gikAK,hgcCAOkSYBeoKeplUukOEBL6pND7o4KJvUqAf4WdwiuRAg\",\n        \"cve\": \"string\",\n        \"affectedVersions\": \"string\",\n        \"source\": \"string\",\n        \"reportedAt\": \"1955-12-06T07:56:53.630Z\",\n        \"composerRepository\": \"string\",\n        \"severity\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://packagist.org",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0f8dfc9d-a856-4103-b5c7-a2949db5ee9e",
+    "name": "Packagist Metadata Security API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Packagist API exposes the PHP Composer package registry. Use it to list, search,\nand inspect packages; retrieve Composer v2 metadata for resolvers; track changes;\nfetch download statistics; query the security advisory database; and create or\nupdate package entries (authenticated).\n\n\nContact Support:\n Name: Packagist",
+      "type": "text/plain"
+    }
+  }
+}

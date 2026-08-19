@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Packagist Metadata Security API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Security",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Security Advisories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://packagist.org/api/security-advisories/",
+            "params": [
+              {
+                "name": "packages[]",
+                "value": "",
+                "type": "query",
+                "description": "One or more package names to check."
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Only return advisories updated since this Unix timestamp."
+              }
+            ]
+          },
+          "docs": "Look up security advisories that apply to one or more packages."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

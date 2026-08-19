@@ -1,0 +1,208 @@
+{
+  "item": [
+    {
+      "id": "c6238f0c-8f28-4b17-9827-a57b63b4ce1c",
+      "name": "Statistics",
+      "description": {
+        "content": "Download and registry statistics.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a52e879d-dd87-4062-bd2e-c5254fcbdfc9",
+          "name": "Get Package Download Statistics",
+          "request": {
+            "name": "Get Package Download Statistics",
+            "description": {
+              "content": "Get per-version and aggregate download statistics for a package.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "packages",
+                ":vendor",
+                ":package",
+                "stats.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vendor",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "package",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "255d7b9a-a2e6-466d-9da6-50b4ef38d66b",
+              "name": "Download statistics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "packages",
+                    ":vendor",
+                    ":package",
+                    "stats.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vendor",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "package",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"downloads\": {\n    \"total\": 5083,\n    \"monthly\": 1293,\n    \"daily\": 8522\n  },\n  \"versions\": {\n    \"key_0\": 4907\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bfa40d0-3fb2-42fc-b65c-ee4998227652",
+          "name": "Get Global Statistics",
+          "request": {
+            "name": "Get Global Statistics",
+            "description": {
+              "content": "Aggregate Packagist statistics — total packages, total versions, total installs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "statistics.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "acf6e590-8e84-4073-8b06-02f58887d447",
+              "name": "Global statistics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "statistics.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totals\": {\n    \"packages\": 1602,\n    \"versions\": 8322,\n    \"installs\": 1036\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://packagist.org",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d06fcc3f-4c19-4b40-a5e8-290d42a374d5",
+    "name": "Packagist Metadata Statistics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Packagist API exposes the PHP Composer package registry. Use it to list, search,\nand inspect packages; retrieve Composer v2 metadata for resolvers; track changes;\nfetch download statistics; query the security advisory database; and create or\nupdate package entries (authenticated).\n\n\nContact Support:\n Name: Packagist",
+      "type": "text/plain"
+    }
+  }
+}
