@@ -197,16 +197,17 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: paid
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Paid · Self-serve signup
-  confidence: high
+  label: Paid
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/packagist.png
 access: 3rd-Party
@@ -336,7 +337,7 @@ common:
     updated: '2026-05-25'
 created: '2026-05-25T00:00:00.000Z'
 modified: '2026-05-25'
-position: Providing
+position: Producing
 description: |
   Packagist is the default package repository for Composer, the PHP dependency manager. It indexes
   over 454,000 open-source PHP packages — versions, dependencies, maintainers, download statistics,
