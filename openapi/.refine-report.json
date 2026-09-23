@@ -1,11 +1,7 @@
 {
   "provider": "packagist",
   "sources": [
-    "packagist-metadata-api-openapi.yml",
-    "packagist-packages-api-openapi.yml",
-    "packagist-search-api-openapi.yml",
-    "packagist-security-api-openapi.yml",
-    "packagist-statistics-api-openapi.yml"
+    "_original/packagist-api-openapi.yml"
   ],
   "outputs": [
     "packagist-metadata-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "packagist-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "packagist-metadata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "packagist-packages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "packagist-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "packagist-security-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "packagist-statistics-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
