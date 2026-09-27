@@ -5,7 +5,7 @@ apis:
   name: Packagist Metadata API
   description: Composer v2 static metadata and change tracking.
   humanURL: https://packagist.org/apidoc
-  baseURL: https://packagist.org
+  baseURL: https://repo.packagist.org
   tags:
   - Metadata
   properties:
@@ -37,7 +37,7 @@ apis:
   name: Packagist Packages API
   description: Discover and manage Composer packages.
   humanURL: https://packagist.org/apidoc
-  baseURL: https://packagist.org
+  baseURL: https://repo.packagist.org
   tags:
   - Packages
   properties:
@@ -69,7 +69,7 @@ apis:
   name: Packagist Search API
   description: Search the Packagist registry.
   humanURL: https://packagist.org/apidoc
-  baseURL: https://packagist.org
+  baseURL: https://repo.packagist.org
   tags:
   - Search
   properties:
@@ -101,7 +101,7 @@ apis:
   name: Packagist Security API
   description: PHP security advisory database.
   humanURL: https://packagist.org/apidoc
-  baseURL: https://packagist.org
+  baseURL: https://repo.packagist.org
   tags:
   - Security
   properties:
@@ -133,7 +133,7 @@ apis:
   name: Packagist Statistics API
   description: Download and registry statistics.
   humanURL: https://packagist.org/apidoc
-  baseURL: https://packagist.org
+  baseURL: https://repo.packagist.org
   tags:
   - Statistics
   properties:
@@ -167,7 +167,7 @@ tags:
 - PHP
 - Package Registry
 - Dependency Management
-- Open-Source
+- Open Source
 - Developer Tools
 - Software Supply Chain
 - Security Advisories
@@ -180,6 +180,7 @@ tags_raw:
 - Developer Tools
 - Software Supply Chain
 - Security Advisories
+- Open-Source
 kind: registry
 deliveryModel:
   model: saas

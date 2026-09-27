@@ -303,6 +303,15 @@ components:
           type: object
           additionalProperties:
             type: string
+    DownloadStats:
+      type: object
+      properties:
+        total:
+          type: integer
+        monthly:
+          type: integer
+        daily:
+          type: integer
     Package:
       type: object
       properties:
@@ -349,15 +358,6 @@ components:
         dependents:
           type: integer
         suggesters:
-          type: integer
-    DownloadStats:
-      type: object
-      properties:
-        total:
-          type: integer
-        monthly:
-          type: integer
-        daily:
           type: integer
   securitySchemes:
     bearerAuth:
