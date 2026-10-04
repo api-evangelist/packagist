@@ -226,53 +226,6 @@ components:
           type: integer
         daily:
           type: integer
-    Package:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        time:
-          type: string
-          format: date-time
-        maintainers:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              avatar_url:
-                type: string
-                format: uri
-        versions:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/PackageVersion'
-        type:
-          type: string
-        repository:
-          type: string
-          format: uri
-        github_stars:
-          type: integer
-        github_watchers:
-          type: integer
-        github_forks:
-          type: integer
-        github_open_issues:
-          type: integer
-        language:
-          type: string
-        downloads:
-          $ref: '#/components/schemas/DownloadStats'
-        favers:
-          type: integer
-        dependents:
-          type: integer
-        suggesters:
-          type: integer
     PackageVersion:
       type: object
       properties:
@@ -358,6 +311,53 @@ components:
         downloads:
           type: integer
         favers:
+          type: integer
+    Package:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        time:
+          type: string
+          format: date-time
+        maintainers:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              avatar_url:
+                type: string
+                format: uri
+        versions:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/PackageVersion'
+        type:
+          type: string
+        repository:
+          type: string
+          format: uri
+        github_stars:
+          type: integer
+        github_watchers:
+          type: integer
+        github_forks:
+          type: integer
+        github_open_issues:
+          type: integer
+        language:
+          type: string
+        downloads:
+          $ref: '#/components/schemas/DownloadStats'
+        favers:
+          type: integer
+        dependents:
+          type: integer
+        suggesters:
           type: integer
   securitySchemes:
     bearerAuth:
