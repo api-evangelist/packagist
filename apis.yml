@@ -213,6 +213,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/packagist.png
 access: 3rd-Party
 common:
+- type: CapabilityMap
+  url: capabilities/packagist-capability-edges.yml
+  name: Packagist Business Capability Map
 - type: Website
   url: https://packagist.org
 - type: AgenticAccess
