@@ -1,179 +1,273 @@
 {
+  "info": {
+    "_postman_id": "e37935ed-2947-41e8-97af-6363fecc3b2d",
+    "name": "Packagist Packages API",
+    "description": "The Packagist API exposes the PHP Composer package registry. Use it to list, search,\nand inspect packages; retrieve Composer v2 metadata for resolvers; track changes;\nfetch download statistics; query the security advisory database; and create or\nupdate package entries (authenticated).\n\nContact Support:\n Name: Packagist",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:25:30.000Z",
+    "updatedAt": "2026-10-22T02:25:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e37935ed-2947-41e8-97af-6363fecc3b2d"
+  },
   "item": [
     {
-      "id": "6282c31a-9e6e-4015-aa09-d7518d9b07d2",
-      "name": "Packages",
-      "description": {
-        "content": "Discover and manage Composer packages.",
-        "type": "text/plain"
-      },
+      "name": "packages",
       "item": [
         {
-          "id": "c348dd24-c56e-4f87-83c3-c428e7031a02",
-          "name": "List Packages",
-          "request": {
-            "name": "List Packages",
-            "description": {
-              "content": "List all packages, optionally filtered by vendor or type.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "packages",
-                "list.json"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "vendor",
-                  "value": "<string>",
-                  "description": "Filter by vendor name."
-                },
-                {
-                  "disabled": false,
-                  "key": "type",
-                  "value": "<string>",
-                  "description": "Filter by Composer package type (library, project, metapackage, composer-plugin)."
-                },
-                {
-                  "disabled": false,
-                  "key": "fields[]",
-                  "value": "<string>",
-                  "description": "Extra fields to include for each package."
-                },
-                {
-                  "disabled": false,
-                  "key": "fields[]",
-                  "value": "<string>",
-                  "description": "Extra fields to include for each package."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "list.json",
+          "item": [
             {
-              "id": "9d0fd21e-e16e-458c-a2b0-60adb30fd34e",
-              "name": "A list of package names.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "packages",
-                    "list.json"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "vendor",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "type",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "fields[]",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "fields[]",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "List Packages",
+              "id": "9cea16e6-8194-4323-92a9-d3cc2a6767b4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/packages/list.json?vendor=<string>&type=<string>&fields[]=<string>&fields[]=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "packages",
+                    "list.json"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by vendor name.",
+                      "key": "vendor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by Composer package type (library, project, metapackage, composer-plugin).",
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Extra fields to include for each package.",
+                      "key": "fields[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Extra fields to include for each package.",
+                      "key": "fields[]",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "List all packages, optionally filtered by vendor or type."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "4a2bb48a-49da-426a-99f9-7a7e1b5c5c56",
+                  "name": "A list of package names.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/packages/list.json?vendor=<string>&type=<string>&fields[]=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "packages",
+                        "list.json"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter by vendor name.",
+                          "key": "vendor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by Composer package type (library, project, metapackage, composer-plugin).",
+                          "key": "type",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Extra fields to include for each package.",
+                          "key": "fields[]",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"packageNames\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-10-22T02:25:30.000Z",
+                  "updatedAt": "2026-10-22T02:25:30.000Z",
+                  "uid": "35240-4a2bb48a-49da-426a-99f9-7a7e1b5c5c56"
                 }
               ],
-              "body": "{\n  \"packageNames\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:25:30.000Z",
+              "updatedAt": "2026-10-22T02:25:30.000Z",
+              "uid": "35240-9cea16e6-8194-4323-92a9-d3cc2a6767b4"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "9e16fc6b-bfc2-4617-b150-b84c61fe91e7",
+          "createdAt": "2026-10-22T02:25:30.000Z",
+          "updatedAt": "2026-10-22T02:25:30.000Z",
+          "uid": "35240-9e16fc6b-bfc2-4617-b150-b84c61fe91e7"
         },
         {
-          "id": "a7daae54-d9ad-49b4-b93e-02c4a9278084",
-          "name": "Get Popular Packages",
-          "request": {
-            "name": "Get Popular Packages",
-            "description": {
-              "content": "Get the most popular packages ranked by recent weekly downloads.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "explore",
-                "popular.json"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
+          "name": "{vendor}",
+          "item": [
+            {
+              "name": "{package}.json",
+              "item": [
                 {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "15"
-                },
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1"
+                  "name": "Get Package",
+                  "id": "3a7d6118-f92d-4cca-9c36-c604187af07e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/packages/:vendor/{{package}}.json",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "packages",
+                        ":vendor",
+                        "{{package}}.json"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7f1aba64-6768-40d0-9209-1836808ec731",
+                          "key": "vendor",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Retrieve full package data including all versions, maintainers, downloads, and dependents. Cached for 12 hours."
+                  },
+                  "response": [
+                    {
+                      "id": "3e715015-c863-4fb7-99b0-83d688cad27c",
+                      "name": "Full package payload.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/packages/:vendor/{{package}}.json",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "packages",
+                            ":vendor",
+                            "{{package}}.json"
+                          ],
+                          "variable": [
+                            {
+                              "key": "vendor"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"package\": {\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"time\": \"<dateTime>\",\n    \"maintainers\": [\n      {\n        \"name\": \"<string>\",\n        \"avatar_url\": \"<uri>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"avatar_url\": \"<uri>\"\n      }\n    ],\n    \"versions\": {\n      \"inb\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"keywords\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"homepage\": \"<string>\",\n        \"version\": \"<string>\",\n        \"version_normalized\": \"<string>\",\n        \"license\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"authors\": [\n          {\n            \"name\": \"<string>\",\n            \"email\": \"<string>\",\n            \"homepage\": \"<string>\",\n            \"role\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"email\": \"<string>\",\n            \"homepage\": \"<string>\",\n            \"role\": \"<string>\"\n          }\n        ],\n        \"source\": {\n          \"type\": \"<string>\",\n          \"url\": \"<string>\",\n          \"reference\": \"<string>\"\n        },\n        \"dist\": {\n          \"type\": \"<string>\",\n          \"url\": \"<string>\",\n          \"reference\": \"<string>\",\n          \"shasum\": \"<string>\"\n        },\n        \"type\": \"<string>\",\n        \"time\": \"<dateTime>\",\n        \"autoload\": {},\n        \"require\": {\n          \"et_0\": \"<string>\"\n        },\n        \"require-dev\": {\n          \"eiusmod09\": \"<string>\",\n          \"cupidatat_e\": \"<string>\",\n          \"dolore_4\": \"<string>\"\n        }\n      }\n    },\n    \"type\": \"<string>\",\n    \"repository\": \"<uri>\",\n    \"github_stars\": \"<integer>\",\n    \"github_watchers\": \"<integer>\",\n    \"github_forks\": \"<integer>\",\n    \"github_open_issues\": \"<integer>\",\n    \"language\": \"<string>\",\n    \"downloads\": {\n      \"total\": \"<integer>\",\n      \"monthly\": \"<integer>\",\n      \"daily\": \"<integer>\"\n    },\n    \"favers\": \"<integer>\",\n    \"dependents\": \"<integer>\",\n    \"suggesters\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-10-22T02:25:30.000Z",
+                      "updatedAt": "2026-10-22T02:25:30.000Z",
+                      "uid": "35240-3e715015-c863-4fb7-99b0-83d688cad27c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:25:30.000Z",
+                  "updatedAt": "2026-10-22T02:25:30.000Z",
+                  "uid": "35240-3a7d6118-f92d-4cca-9c36-c604187af07e"
                 }
               ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+              "id": "23827641-bf87-45a4-afee-856c661cbfa9",
+              "createdAt": "2026-10-22T02:25:30.000Z",
+              "updatedAt": "2026-10-22T02:25:30.000Z",
+              "uid": "35240-23827641-bf87-45a4-afee-856c661cbfa9"
+            }
+          ],
+          "id": "4a728306-b348-4ec8-a5c8-88233f4a615a",
+          "createdAt": "2026-10-22T02:25:30.000Z",
+          "updatedAt": "2026-10-22T02:25:30.000Z",
+          "uid": "35240-4a728306-b348-4ec8-a5c8-88233f4a615a"
+        }
+      ],
+      "id": "ad2e7535-db0d-4bba-8d17-0a72beae0985",
+      "createdAt": "2026-10-22T02:25:30.000Z",
+      "updatedAt": "2026-10-22T02:25:30.000Z",
+      "uid": "35240-ad2e7535-db0d-4bba-8d17-0a72beae0985"
+    },
+    {
+      "name": "explore",
+      "item": [
+        {
+          "name": "popular.json",
+          "item": [
             {
-              "id": "e9d35929-262d-4d95-b7bd-046275ea4073",
-              "name": "A page of popular packages.",
-              "originalRequest": {
+              "name": "Get Popular Packages",
+              "id": "30838300-6087-4149-9857-d5141de0326d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
+                  "raw": "{{baseUrl}}/explore/popular.json?per_page=15&page=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "explore",
                     "popular.json"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
                   ],
                   "query": [
                     {
@@ -184,524 +278,493 @@
                       "key": "page",
                       "value": "1"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Get the most popular packages ranked by recent weekly downloads."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "ea4d7df4-ae5d-4dca-91b4-7a4808651dec",
+                  "name": "A page of popular packages.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/explore/popular.json?per_page=15&page=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "explore",
+                        "popular.json"
+                      ],
+                      "query": [
+                        {
+                          "key": "per_page",
+                          "value": "15"
+                        },
+                        {
+                          "key": "page",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"packages\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"repository\": \"<uri>\",\n      \"downloads\": \"<integer>\",\n      \"favers\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"repository\": \"<uri>\",\n      \"downloads\": \"<integer>\",\n      \"favers\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-22T02:25:30.000Z",
+                  "updatedAt": "2026-10-22T02:25:30.000Z",
+                  "uid": "35240-ea4d7df4-ae5d-4dca-91b4-7a4808651dec"
                 }
               ],
-              "body": "{\n  \"packages\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"https://zwQyPtAa.eyyLvbxC4Y0v9E0tikmF+mSOynnZj+B8GDo.yAaeoRh\",\n      \"repository\": \"https://SlKlrpeCgrRfhwYydoatLu.htfsG+vQNPur,MI9IxNXYhevmiBifnND5gtpQkQ\",\n      \"downloads\": 1855,\n      \"favers\": 4109\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"url\": \"http://KXHWXUaPnNKX.gwkBL5\",\n      \"repository\": \"http://JQcoGFlVWVHvK.ygkNyvC1D4xVIJE,ia1zM8.0po\",\n      \"downloads\": 1895,\n      \"favers\": 453\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T02:25:30.000Z",
+              "updatedAt": "2026-10-22T02:25:30.000Z",
+              "uid": "35240-30838300-6087-4149-9857-d5141de0326d"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
+          "id": "374b5697-2e1c-44b9-82f4-f9b2da4e4f2e",
+          "createdAt": "2026-10-22T02:25:30.000Z",
+          "updatedAt": "2026-10-22T02:25:30.000Z",
+          "uid": "35240-374b5697-2e1c-44b9-82f4-f9b2da4e4f2e"
+        }
+      ],
+      "id": "8419b9c4-cb2b-47d5-a4ae-39847ed4980d",
+      "createdAt": "2026-10-22T02:25:30.000Z",
+      "updatedAt": "2026-10-22T02:25:30.000Z",
+      "uid": "35240-8419b9c4-cb2b-47d5-a4ae-39847ed4980d"
+    },
+    {
+      "name": "api",
+      "item": [
         {
-          "id": "233a1813-87d7-4126-87b5-f752d8e24db6",
-          "name": "Get Package",
-          "request": {
-            "name": "Get Package",
-            "description": {
-              "content": "Retrieve full package data including all versions, maintainers, downloads, and dependents. Cached for 12 hours.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "packages",
-                ":vendor",
-                "{{package}}.json"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "vendor",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "create-package",
+          "item": [
             {
-              "id": "d08bc8c3-7930-4d24-b4bf-00f985d6fafe",
-              "name": "Full package payload.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "packages",
-                    ":vendor",
-                    "{{package}}.json"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "Create Package",
+              "id": "95175954-f8c8-4232-a795-25260734d9cc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "vendor",
-                      "description": "(Required) "
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
                     }
                   ]
                 },
+                "method": "POST",
                 "header": [
                   {
-                    "key": "Accept",
+                    "key": "Content-Type",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"package\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"time\": \"2008-03-06T10:19:26.927Z\",\n    \"maintainers\": [\n      {\n        \"name\": \"string\",\n        \"avatar_url\": \"https://eKOQDehUZUibqQQltsCKzvzitdToc.yznrpP-YNcdEctbwr\"\n      },\n      {\n        \"name\": \"string\",\n        \"avatar_url\": \"https://jMLMYtn.eugwxxCBM4vviuaL-U.bM3SwOHgKMSsKQrHlP.OhUJnppEVC,pPflPk\"\n      }\n    ],\n    \"versions\": {\n      \"key_0\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"keywords\": [\n          \"string\",\n          \"string\"\n        ],\n        \"homepage\": \"string\",\n        \"version\": \"string\",\n        \"version_normalized\": \"string\",\n        \"license\": [\n          \"string\",\n          \"string\"\n        ],\n        \"authors\": [\n          {\n            \"name\": \"string\",\n            \"email\": \"string\",\n            \"homepage\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"email\": \"string\",\n            \"homepage\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"source\": {\n          \"type\": \"string\",\n          \"url\": \"string\",\n          \"reference\": \"string\"\n        },\n        \"dist\": {\n          \"type\": \"string\",\n          \"url\": \"string\",\n          \"reference\": \"string\",\n          \"shasum\": \"string\"\n        },\n        \"type\": \"string\",\n        \"time\": \"2005-12-26T00:43:08.344Z\",\n        \"autoload\": {},\n        \"require\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"require-dev\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      \"key_1\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"keywords\": [\n          \"string\",\n          \"string\"\n        ],\n        \"homepage\": \"string\",\n        \"version\": \"string\",\n        \"version_normalized\": \"string\",\n        \"license\": [\n          \"string\",\n          \"string\"\n        ],\n        \"authors\": [\n          {\n            \"name\": \"string\",\n            \"email\": \"string\",\n            \"homepage\": \"string\",\n            \"role\": \"string\"\n          },\n          {\n            \"name\": \"string\",\n            \"email\": \"string\",\n            \"homepage\": \"string\",\n            \"role\": \"string\"\n          }\n        ],\n        \"source\": {\n          \"type\": \"string\",\n          \"url\": \"string\",\n          \"reference\": \"string\"\n        },\n        \"dist\": {\n          \"type\": \"string\",\n          \"url\": \"string\",\n          \"reference\": \"string\",\n          \"shasum\": \"string\"\n        },\n        \"type\": \"string\",\n        \"time\": \"2004-03-11T11:04:40.556Z\",\n        \"autoload\": {},\n        \"require\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"require-dev\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      }\n    },\n    \"type\": \"string\",\n    \"repository\": \"https://e.ofsoSvxXfSvo-TFu+SUvuItzPnHomViGaSshoXHYJUsXlQfGgrDcQkRmCdKEsj\",\n    \"github_stars\": 9842,\n    \"github_watchers\": 4627,\n    \"github_forks\": 6598,\n    \"github_open_issues\": 521,\n    \"language\": \"string\",\n    \"downloads\": {\n      \"total\": 2467,\n      \"monthly\": 3570,\n      \"daily\": 4818\n    },\n    \"favers\": 8442,\n    \"dependents\": 1445,\n    \"suggesters\": 6722\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "314d3787-43c6-462b-b86c-ea52b8b420e9",
-          "name": "Create Package",
-          "request": {
-            "name": "Create Package",
-            "description": {
-              "content": "Submit a new package by its source repository URL.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "create-package"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "dbfff4cd-9034-4234-ab1c-ef8354b19dab",
-              "name": "Package accepted for indexing.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "create-package"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "Accepted",
-              "code": 202,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "324093e4-6b08-4f97-903b-2e375dd668c1",
-              "name": "Unauthorized.",
-              "originalRequest": {
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/api/create-package",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "create-package"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "description": "Submit a new package by its source repository URL."
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "983f118a-f167-4409-ade1-c9495e4b23be",
+                  "name": "Package accepted for indexing.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/create-package",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "create-package"
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:25:30.000Z",
+                  "updatedAt": "2026-10-22T02:25:30.000Z",
+                  "uid": "35240-983f118a-f167-4409-ade1-c9495e4b23be"
+                },
+                {
+                  "id": "dda1c9ee-ad27-4e43-98b5-03cdcc95fc3a",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/create-package",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "create-package"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:25:30.000Z",
+                  "updatedAt": "2026-10-22T02:25:30.000Z",
+                  "uid": "35240-dda1c9ee-ad27-4e43-98b5-03cdcc95fc3a"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T02:25:30.000Z",
+              "updatedAt": "2026-10-22T02:25:30.000Z",
+              "uid": "35240-95175954-f8c8-4232-a795-25260734d9cc"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "343052e6-172f-498a-9d24-989469f61b91",
+          "createdAt": "2026-10-22T02:25:30.000Z",
+          "updatedAt": "2026-10-22T02:25:30.000Z",
+          "uid": "35240-343052e6-172f-498a-9d24-989469f61b91"
         },
         {
-          "id": "a1260c8b-2d1e-45c6-982a-e5915f7ee3d7",
-          "name": "Edit Package URL",
-          "request": {
-            "name": "Edit Package URL",
-            "description": {
-              "content": "Update the source repository URL of an existing package.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "packages",
-                ":package"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "package",
-                  "description": "(Required) Full package name (vendor/package)."
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "packages",
+          "item": [
             {
-              "id": "9e5a1ddb-f791-40ba-b606-137253ed1a0e",
-              "name": "Package URL updated.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "packages",
-                    ":package"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "{package}",
+              "item": [
+                {
+                  "name": "Edit Package URL",
+                  "id": "67d241a7-7b37-4878-a31f-301ea95ff56f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/packages/:package",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "packages",
+                        ":package"
+                      ],
+                      "variable": [
+                        {
+                          "id": "94eac759-a959-4bdb-9381-93985f2a3467",
+                          "key": "package",
+                          "value": "<string>",
+                          "description": "(Required) Full package name (vendor/package)."
+                        }
+                      ]
+                    },
+                    "description": "Update the source repository URL of an existing package."
+                  },
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "package",
-                      "description": "(Required) Full package name (vendor/package)."
+                      "id": "ed801ce5-1445-4bae-8c95-e6f015777d9b",
+                      "name": "Package URL updated.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/packages/:package",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "packages",
+                            ":package"
+                          ],
+                          "variable": [
+                            {
+                              "key": "package"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:25:30.000Z",
+                      "updatedAt": "2026-10-22T02:25:30.000Z",
+                      "uid": "35240-ed801ce5-1445-4bae-8c95-e6f015777d9b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:25:30.000Z",
+                  "updatedAt": "2026-10-22T02:25:30.000Z",
+                  "uid": "35240-67d241a7-7b37-4878-a31f-301ea95ff56f"
+                }
+              ],
+              "id": "ea2ba881-30ca-4a6d-b478-0425fa333d49",
+              "createdAt": "2026-10-22T02:25:30.000Z",
+              "updatedAt": "2026-10-22T02:25:30.000Z",
+              "uid": "35240-ea2ba881-30ca-4a6d-b478-0425fa333d49"
+            }
+          ],
+          "id": "2da09f40-32d7-4059-ad9e-bb551b131cdf",
+          "createdAt": "2026-10-22T02:25:30.000Z",
+          "updatedAt": "2026-10-22T02:25:30.000Z",
+          "uid": "35240-2da09f40-32d7-4059-ad9e-bb551b131cdf"
+        },
+        {
+          "name": "update-package",
+          "item": [
+            {
+              "name": "Update Package Metadata",
+              "id": "633693d5-d801-4722-9f5a-240e9a2f1288",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
                     }
                   ]
                 },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   }
                 ],
-                "method": "PUT",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "938dbbfa-3158-4f2a-8447-713f558192d1",
-          "name": "Update Package Metadata",
-          "request": {
-            "name": "Update Package Metadata",
-            "description": {
-              "content": "Trigger a re-crawl of a package's repository to refresh its metadata. SAFE token sufficient.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "api",
-                "update-package"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "590edc32-528b-447f-9ef3-9c3481f17732",
-              "name": "Update queued.",
-              "originalRequest": {
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/api/update-package",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "api",
                     "update-package"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "description": "Trigger a re-crawl of a package's repository to refresh its metadata. SAFE token sufficient."
               },
-              "status": "Accepted",
-              "code": 202,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "814801e9-2b7d-4265-878d-603baa7db342",
+                  "name": "Update queued.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"repository\": {\n    \"url\": \"<uri>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/update-package",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "update-package"
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:25:30.000Z",
+                  "updatedAt": "2026-10-22T02:25:30.000Z",
+                  "uid": "35240-814801e9-2b7d-4265-878d-603baa7db342"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T02:25:30.000Z",
+              "updatedAt": "2026-10-22T02:25:30.000Z",
+              "uid": "35240-633693d5-d801-4722-9f5a-240e9a2f1288"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "dc87fe13-8752-4519-bd51-cc5f28597025",
+          "createdAt": "2026-10-22T02:25:30.000Z",
+          "updatedAt": "2026-10-22T02:25:30.000Z",
+          "uid": "35240-dc87fe13-8752-4519-bd51-cc5f28597025"
         }
       ],
-      "event": []
+      "id": "eb5a5928-d073-43f1-8a12-8ba2f42ab326",
+      "createdAt": "2026-10-22T02:25:30.000Z",
+      "updatedAt": "2026-10-22T02:25:30.000Z",
+      "uid": "35240-eb5a5928-d073-43f1-8a12-8ba2f42ab326"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://packagist.org",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://packagist.org"
     },
     {
-      "disabled": false,
-      "description": {
-        "content": "(Required) ",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<string>",
-      "key": "package"
+      "key": "package",
+      "value": "<string>"
     }
-  ],
-  "info": {
-    "_postman_id": "1cb3449b-f603-4509-a0e9-9ed2667982ea",
-    "name": "Packagist Metadata Packages API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Packagist API exposes the PHP Composer package registry. Use it to list, search,\nand inspect packages; retrieve Composer v2 metadata for resolvers; track changes;\nfetch download statistics; query the security advisory database; and create or\nupdate package entries (authenticated).\n\n\nContact Support:\n Name: Packagist",
-      "type": "text/plain"
-    }
-  }
+  ]
 }
